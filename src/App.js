@@ -147,7 +147,28 @@ function App() {
     <div className="App">
       <header className="header">
         <h1>ACTA SOPORTE TÉCNICO MODO</h1>
-      
+        <table className="acta-options-table">
+          <tbody>
+            <tr>
+              <td>
+                <button
+                  className={`acta-option-btn ${actaType === 'entrega' ? 'active' : ''}`}
+                  onClick={() => setActaType('entrega')}
+                >
+                  Acta de Entrega de Equipos
+                </button>
+              </td>
+              <td>
+                <button
+                  className={`acta-option-btn ${actaType === 'salida' ? 'active' : ''}`}
+                  onClick={() => setActaType('salida')}
+                >
+                  Acta de Salida de Equipos
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </header>
 
       <main>
@@ -156,17 +177,6 @@ function App() {
             ? 'Acta de Entrega de Equipos y Herramientas'
             : 'Acta de Salida de Equipos y Herramientas'}
         </h2>
-
-        <div className="acta-selector">
-          <label>Tipo de Acta: </label>
-          <select
-            value={actaType}
-            onChange={(e) => setActaType(e.target.value)}
-          >
-            <option value="entrega">Acta de Entrega de Equipos</option>
-            <option value="salida">Acta de Salida de Equipos</option>
-          </select>
-        </div>
 
         <form className="form" onSubmit={(e) => e.preventDefault()}>
           <div className="form-group">
@@ -186,27 +196,6 @@ function App() {
               onChange={(e) => handleFormChange('lugar', e.target.value)}
             />
           </div>
-
-          <div className="form-group">
-            <label>PERSONA ASIGNADA</label>
-            <input
-              type="text"
-              value={formData.personaAsignada}
-              onChange={(e) =>
-                handleFormChange('personaAsignada', e.target.value)
-              }
-            />
-          </div>
-
-          <div className="form-group">
-            <label>CÉDULA DE IDENTIDAD</label>
-            <input
-              type="text"
-              value={formData.cedula}
-              onChange={(e) => handleFormChange('cedula', e.target.value)}
-            />
-          </div>
-
 
           <div className="form-group">
             <label>EQUIPOS</label>
@@ -264,7 +253,26 @@ function App() {
             </table>
           </div>
 
-          
+          <div className="form-group">
+            <label>PERSONA ASIGNADA</label>
+            <input
+              type="text"
+              value={formData.personaAsignada}
+              onChange={(e) =>
+                handleFormChange('personaAsignada', e.target.value)
+              }
+            />
+          </div>
+
+          <div className="form-group">
+            <label>CÉDULA DE IDENTIDAD</label>
+            <input
+              type="text"
+              value={formData.cedula}
+              onChange={(e) => handleFormChange('cedula', e.target.value)}
+            />
+          </div>
+
           {actaType === 'salida' && (
             <>
               <div className="form-group">
