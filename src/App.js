@@ -13,7 +13,7 @@ function App() {
     hacia: '', // Para el acta de salida
   });
   const [equipment, setEquipment] = useState([
-    { serie: 'mdkfvkndvs', descripcion: 'hsxbjhasb', cantidad: '1' },
+    { serie: '', descripcion: '', cantidad: '' },
   ]);
   const [previewData, setPreviewData] = useState(null); // Estado para la vista previa
 
